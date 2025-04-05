@@ -1,3 +1,4 @@
+/*
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
@@ -143,12 +144,12 @@ float calculeazaPretMediu(nod* cap)
 	return medie;
 }
 
-void stergeMasiniDinSeria(/*lista masini*/ char serieCautata) {
+void stergeMasiniDinSeria(/*lista masini char serieCautata) {
 	//sterge toate masinile din lista care au seria primita ca parametru.
 	//tratati situatia ca masina se afla si pe prima pozitie, si pe ultima pozitie
 }
 
-float calculeazaPretulMasinilorUnuiSofer(/*lista masini*/ const char* numeSofer) {
+float calculeazaPretulMasinilorUnuiSofer( const char* numeSofer) {
 	//calculeaza pretul tuturor masinilor unui sofer.
 	return 0;
 }
@@ -161,3 +162,4 @@ int main()
 	printf("\nMedia este: %f", medie);
 	return 0;
 }
+*/
