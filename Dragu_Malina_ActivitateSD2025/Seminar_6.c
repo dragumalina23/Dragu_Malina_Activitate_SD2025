@@ -1,224 +1,290 @@
-//#define _CRT_SECURE_NO_WARNINGS
-//#include <stdio.h>
-//#include <stdlib.h>
-//#include <string.h>
-//
-////trebuie sa folositi fisierul masini.txt
-////sau va creati un alt fisier cu alte date
-//
-//struct StructuraMasina {
-//	int id;
-//	int nrUsi;
-//	float pret;
-//	char* model;
-//	char* numeSofer;
-//	unsigned char serie;
-//};
-//typedef struct StructuraMasina Masina;
-//
-////creare structura pentru un nod dintr-o lista simplu inlantuita
-//
-//typedef struct Nod nod;
-//struct Nod
-//{
-//	Masina info;
-//	nod* next;
-//};
-//
-////creare structura pentru tabela de dispersie
-//// aceasta este un vector de liste
-//struct HashTable {
-//	int dim;
-//	nod** vector;
-//};
-//typedef struct HashTable HashTable;
-//
-//Masina citireMasinaDinFisier(FILE* file) {
-//	char buffer[100];
-//	char sep[3] = ",\n";
-//	fgets(buffer, 100, file);
-//	char* aux;
-//	Masina m1;
-//	aux = strtok(buffer, sep);
-//	m1.id = atoi(aux);
-//	m1.nrUsi = atoi(strtok(NULL, sep));
-//	m1.pret = atof(strtok(NULL, sep));
-//	aux = strtok(NULL, sep);
-//	m1.model = malloc(strlen(aux) + 1);
-//	strcpy_s(m1.model, strlen(aux) + 1, aux);
-//
-//	aux = strtok(NULL, sep);
-//	m1.numeSofer = malloc(strlen(aux) + 1);
-//	strcpy_s(m1.numeSofer, strlen(aux) + 1, aux);
-//
-//	m1.serie = *strtok(NULL, sep);
-//	return m1;
-//}
-//
-//void afisareMasina(Masina masina) {
-//	printf("Id: %d\n", masina.id);
-//	printf("Nr. usi : %d\n", masina.nrUsi);
-//	printf("Pret: %.2f\n", masina.pret);
-//	printf("Model: %s\n", masina.model);
-//	printf("Nume sofer: %s\n", masina.numeSofer);
-//	printf("Serie: %c\n\n", masina.serie);
-//}
-//
-//void afisareListaMasini(nod* cap) 
-//{
-//	while (cap != NULL)
-//	{
-//		afisareMasina(cap->info);
-//		cap = cap->next;
-//	}
-//}
-//
-//void adaugaMasinaInLista(nod** cap, Masina masinaNoua) 
-//{
-//	nod* temp = (nod*)malloc(sizeof(nod));
-//
-//	temp->info = masinaNoua; // shallow copy
-//	temp->next = NULL;
-//
-//	if ((*cap) == NULL)
-//	{
-//		(*cap) = temp;
-//	}
-//	else
-//	{
-//		nod* aux = *cap;
-//		while (aux->next != NULL)
-//		{
-//			aux = aux->next;
-//		}
-//		aux->next = temp;
-//	}
-//}
-//
-//
-//HashTable initializareHashTable(int dimensiune) {
-//	HashTable ht;
-//	ht.dim = dimensiune;
-//	ht.vector = (nod**)malloc(sizeof(nod*) * dimensiune);
-//	for (int i = 0; i < dimensiune; i++)
-//	{
-//		ht.vector[i] = NULL;
-//	}
-//	return ht;
-//}
-//
-//int calculeazaHash(const char* cheieNumeSofer, int dimensiune) {
-//	
-//	if (!dimensiune && dimensiune < 0)
-//	{
-//		return -1;
-//	}
-//	// suma caract ascii % dimensiune
-//	unsigned int suma = 0;
-//
-//	for (int i = 0; i < strlen(cheieNumeSofer); i++)
-//	{
-//		suma += (int)cheieNumeSofer[i];
-//	}
-//
-//	suma %= dimensiune; // rezultat
-//	return suma;
-//}
-//
-//void inserareMasinaInTabela(HashTable hash, Masina masina) 
-//{	
-//	int poz = calculeazaHash(masina.numeSofer, hash.dim); //cheie -> numele soferului
-//	if (hash.vector[poz] == NULL) // verif. daca avem coliziune
-//	{
-//		// nu avem coliziune
-//		adaugaMasinaInLista(&(hash.vector[poz]), masina);
-//	}
-//	else
-//	{
-//		// avem coliziune
-//		adaugaMasinaInLista(&(hash.vector[poz]), masina);
-//	}
-//}
-//
-//HashTable citireMasiniDinFisier(const char* numeFisier, int dim) 
-//{
-//	FILE* f = fopen(numeFisier,"r");
-//	HashTable hash = initializareHashTable(dim);
-//	while (!feof(f))
-//	{
-//		Masina masina = citireMasinaDinFisier(f);
-//		inserareMasinaInTabela(hash, masina);
-//	}
-//
-//	fclose(f);
-//	return hash;
-//}
-//
-//void afisareTabelaDeMasini(HashTable ht) {
-//	//sunt afisate toate masinile cu evidentierea clusterelor realizate
-//	for (int i = 0; i < ht.dim; i++)
-//	{
-//		printf("Lantul %d\n", i + 1);
-//		afisareListaMasini(ht.vector[i]);
-//	}
-//}
-//
-//void dezalocareTabelaDeMasini(HashTable *ht) {
-//	//sunt dezalocate toate masinile din tabela de dispersie
-//}
-//
-//float* calculeazaPreturiMediiPerClustere(HashTable ht, int* nrClustere) {
-//	//calculeaza pretul mediu al masinilor din fiecare cluster.
-//	//trebuie sa returnam un vector cu valorile medii per cluster.
-//	//lungimea vectorului este data de numarul de clustere care contin masini
-//	return NULL;
-//}
-//
-//Masina getMasinaDupaCheie(HashTable ht, const char* numeSofer) {
-//	Masina m;
-//	m.id = -1;
-//
-//	int pozitie = calculeazaHash(numeSofer, ht.dim);
-//	if (pozitie < 0 || pozitie >= ht.dim || ht.vector[pozitie] == NULL)
-//	{
-//		return m;
-//	}
-//	nod* aux = ht.vector[pozitie];
-//	while (aux != NULL && strcmp(aux->info.numeSofer, numeSofer) != 0)
-//	{
-//		aux = aux->next;
-//	}
-//	if (aux != NULL)
-//	{
-//		m.numeSofer = (char*)malloc(strlen(numeSofer) + 1);
-//		strcpy(m.numeSofer, numeSofer);
-//		m.model = (char*)malloc(strlen(aux->info.model) + 1);
-//		strcpy(m.model, aux->info.model);
-//		m.id = aux->info.id;
-//		m.nrUsi = aux->info.nrUsi;
-//		m.pret = aux->info.pret;
-//		m.serie = aux->info.serie;
-//	}
-//	return m;
-//}
-//
-//int main() {
-//
-//	HashTable hash;
-//	hash = citireMasiniDinFisier("masini.txt", 5);
-//	//afisareTabelaDeMasini(hash);
-//
-//	Masina IonescuMasina = getMasinaDupaCheie(hash, "Ionescu");
-//	printf("Masina lui Ionescu:\n");
-//	if (IonescuMasina.id != 1)
-//	{
-//		afisareMasina(IonescuMasina);
-//		free(IonescuMasina.numeSofer);
-//	}
-//	else
-//	{
-//		printf("Masina nu a fost gasita");
-//	}
-//	return 0;
-//
-//}
+﻿#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct StructuraMasina
+{
+	int id;
+	int nrUsi;
+	float pret;
+	char* model;
+	char* numeSofer;
+	unsigned char serie;
+};
+typedef struct StructuraMasina Masina;
+
+struct Nod
+{
+	Masina masina;
+	struct Nod* next;
+};	
+typedef struct Nod Nod;
+
+struct HashTable
+{
+	int dim;
+	Nod** tabela;
+};
+typedef struct HashTable HashTable;
+
+Masina citireMasinaDinFisier(FILE* file) {
+	char buffer[100];
+	char sep[3] = ",\n";
+	fgets(buffer, 100, file);
+	char* aux;
+	Masina m1;
+	aux = strtok(buffer, sep);
+	m1.id = atoi(aux);
+	m1.nrUsi = atoi(strtok(NULL, sep));
+	m1.pret = atof(strtok(NULL, sep));
+	aux = strtok(NULL, sep);
+	m1.model = malloc(strlen(aux) + 1);
+	strcpy_s(m1.model, strlen(aux) + 1, aux);
+	aux = strtok(NULL, sep);
+	m1.numeSofer = malloc(strlen(aux) + 1);
+	strcpy_s(m1.numeSofer, strlen(aux) + 1, aux);
+	m1.serie = *strtok(NULL, sep);
+	return m1;
+}
+
+void afisareMasina(Masina masina) {
+	printf("Id: %d\n", masina.id);
+	printf("Nr. usi : %d\n", masina.nrUsi);
+	printf("Pret: %.2f\n", masina.pret);
+	printf("Model: %s\n", masina.model);
+	printf("Nume sofer: %s\n", masina.numeSofer);
+	printf("Serie: %c\n\n", masina.serie);
+}
+
+void afisareListaMasini(Nod* cap)
+{
+	while (cap)
+	{
+		afisareMasina(cap->masina);
+		cap = cap->next;
+	}
+}
+
+void adaugaMasinaInLista(Nod* cap, Masina masinaNoua)
+{
+	Nod* p = cap;
+	while (p->next)
+	{
+		p = p->next;
+	}
+	Nod* nou = (Nod*)malloc(sizeof(Nod));
+	nou->masina = masinaNoua;
+	nou->next = NULL;
+	p->next = nou;
+}
+
+HashTable initializareHashTable(int dimensiune)
+{
+	HashTable ht;
+	ht.dim = dimensiune;
+	ht.tabela = (Nod**)malloc(dimensiune * sizeof(Nod*));
+	for (int i = 0; i < dimensiune; i++)
+	{
+		ht.tabela[i] = NULL;
+	}
+	return ht;
+}
+
+int calculeazaHash(const char* nume, int dimensiune)
+{
+	int suma = 0;
+	for (int i = 0; i < strlen(nume); i++)
+	{
+		suma += nume[i];
+	}
+	return suma % dimensiune;
+}
+
+void inserareMasinaInTabela(HashTable hash, Masina masina)
+{
+	int pozitie = calculeazaHash(masina.numeSofer, hash.dim);
+	if (hash.tabela[pozitie] == NULL)
+	{
+		hash.tabela[pozitie] = (Nod*)malloc(sizeof(Nod));
+		hash.tabela[pozitie]->masina = masina;
+		hash.tabela[pozitie]->next = NULL;
+	}
+	else
+	{
+		adaugaMasinaInLista(hash.tabela[pozitie], masina);
+	}
+}
+
+HashTable citireMasiniDinFisier(const char* numeFisier, int dimensiune)
+{
+	HashTable hash = initializareHashTable(dimensiune);
+	FILE* f = fopen(numeFisier, "r");
+	while (!feof(f))
+	{
+		Masina masina = citireMasinaDinFisier(f);
+		inserareMasinaInTabela(hash, masina);
+	}
+	fclose(f);
+
+	return hash;
+}
+
+void afisareTabelaMasini(HashTable ht)
+{
+	for (int i = 0; i < ht.dim; i++)
+	{
+		if (ht.tabela[i] != NULL)
+		{
+			printf("\n======= Masinile de pe pozitia %d: =======\n", i);
+			afisareListaMasini(ht.tabela[i]);
+		}
+		else
+		{
+			printf("\n------- Pe pozitia %d nu sunt masini -------\n", i);
+		}
+	}
+}
+
+void dezalocareListaMasini(Nod** cap)
+{
+	Nod* p = (*cap);
+	while (p)
+	{
+		Nod* aux = p;
+		p = p->next;
+		if (aux->masina.model)
+		{
+			free(aux->masina.model);
+		}
+		if (aux->masina.numeSofer)
+		{
+			free(aux->masina.numeSofer);
+		}
+		free(aux);
+	}
+	(*cap) = NULL;
+}
+
+void dezalocareTabelaMasini(HashTable* ht)
+{
+	for (int i = 0; i < ht->dim; i++)
+	{
+		dezalocareListaMasini(&ht->tabela[i]);
+	}
+	free(ht->tabela);
+	ht->tabela = NULL;
+	ht->dim = 0;
+}
+
+float calculeazaMedieLista(Nod* cap)
+{
+	float suma = 0;
+	int nrElemente = 0;
+	while(cap)
+	{
+		suma += cap->masina.pret;
+		nrElemente++;
+		cap = cap->next;
+	}
+	if (nrElemente)
+	{
+		return (suma / nrElemente);
+	}
+	return 0;
+}
+
+float* calculeazaPreturiMediiClustere(HashTable ht, int* nrClustere)
+{
+	float* preturi = NULL;
+	(*nrClustere) = 0;
+	for (int i = 0; i < ht.dim; i++)
+	{
+		if (ht.tabela[i])
+		{
+			(*nrClustere)++;
+		}
+	}
+	preturi = (float*)malloc((*nrClustere) * sizeof(float));
+	int contor = 0;
+	for (int i = 0; i < ht.dim; i++)
+	{
+		if (ht.tabela[i])
+		{
+			preturi[contor] = calculeazaMedieLista(ht.tabela[i]);
+			contor++;
+		}
+	}
+	return preturi;
+}
+
+Masina getMasinaDinLista(Nod* cap, const char* numeSofer)
+{
+	Masina m;
+	m.id = -1;
+	while (cap && strcmp(cap->masina.numeSofer, numeSofer) != 0)
+	{
+		cap = cap->next;
+	}
+	if (cap)
+	{
+		m = cap->masina;
+		m.model = (char*)malloc(strlen(cap->masina.model) + 1);
+		strcpy_s(m.model, strlen(cap->masina.model) + 1, cap->masina.model);
+		m.numeSofer = (char*)malloc(strlen(cap->masina.numeSofer) + 1);
+		strcpy_s(m.numeSofer, strlen(cap->masina.numeSofer) + 1, cap->masina.numeSofer);
+	}
+	return m;
+}
+
+Masina getMasinaDupaNumeSofer(HashTable ht, const char* numeCautat)
+{
+	Masina m;
+	m.id = -1;
+	int poz = calculeazaHash(numeCautat, ht.dim);
+	if (poz >= 0 && poz < ht.dim)
+	{
+		return getMasinaDinLista(ht.tabela[poz], numeCautat);
+	}
+	return m;
+}
+
+int main()
+{
+	HashTable ht = citireMasiniDinFisier("masini.txt", 7);
+	afisareTabelaMasini(ht);
+	int nrClustere = 0;
+	float* preturi = calculeazaPreturiMediiClustere(ht, &nrClustere);
+
+	printf("\n================== Preturile medii per clustere sunt: ==================\n");
+	for (int i = 0; i < nrClustere; i++)
+	{
+		printf("%.2f ", preturi[i]);
+	}
+
+	printf("\n");
+
+	Masina m = getMasinaDupaNumeSofer(ht, "Vasilescu V Gigel");
+	printf("\n----------------- Masina Cautata: -----------------\n");
+	if (m.id != -1)
+	{
+		afisareMasina(m);
+	}
+	else
+	{
+		printf("Masina nu exista!\n");
+	}
+
+	if (m.model)
+	{
+		free(m.model);
+	}
+	if (m.numeSofer)
+	{
+		free(m.numeSofer);
+	}
+
+	dezalocareTabelaMasini(&ht);
+	return 0;
+}
+
