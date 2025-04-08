@@ -174,17 +174,20 @@ float calculeazaPretMediu(ListaDubla lista)
 
 void stergeMasinaDupaID(ListaDubla* lista, int id) 
 {
-	Nod* p = lista->first;
-	while (p)
+	if (lista)
 	{
+		Nod* p = lista->first;
+		while (p && p->masina.id != id)
+		{
+			p = p->next;
+		}
 		if (p->masina.id == id)
 		{
 			if (p->prev == NULL)
 			{
 				Nod* aux = p->next;
-				aux->prev = NULL;
 				lista->first = aux;
-				lista->nrNoduri--;
+				aux->prev = NULL;
 			}
 			else
 			{
@@ -194,7 +197,6 @@ void stergeMasinaDupaID(ListaDubla* lista, int id)
 					aux->next = NULL;
 					p->prev = NULL;
 					lista->last = aux;
-					lista->nrNoduri--;
 				}
 				else
 				{
@@ -205,14 +207,33 @@ void stergeMasinaDupaID(ListaDubla* lista, int id)
 				}
 			}
 		}
-		p = p->next;
+		if (p->masina.model)
+		{
+			free(p->masina.model);
+		}
+		if (p->masina.numeSofer)
+		{
+			free(p->masina.numeSofer);
+		}
+		free(p);
+		lista->nrNoduri--;
 	}
+	return;
 }
 
-char* getNumeSoferMasinaScumpa(/*lista dublu inlantuita*/) {
-	//cauta masina cea mai scumpa si 
-	//returneaza numele soferului acestei maasini.
-	return NULL;
+char* getNumeSoferMasinaScumpa(ListaDubla lista) 
+{
+	Nod* p = lista.first;
+	Nod* maxx = lista.first;
+	while (p)
+	{
+		if (p->masina.pret > maxx->masina.pret)
+		{
+			maxx = p;
+		}
+		p = p->next;
+	}
+	return maxx->masina.numeSofer;
 }
 
 int main() 
@@ -229,8 +250,12 @@ int main()
 	printf("\n=========================================\n");
 	printf("\n=========================================\n");
 
-	stergeMasinaDupaID(&lista, 10);
-	afisareListaMasiniDeLaInceput(lista);
+	//stergeMasinaDupaID(&lista, 5);
+	//afisareListaMasiniDeLaInceput(lista);
+	
+	printf("\n=========================================\n");
+	printf("\n=========================================\n");
+	printf("Numele soferului cu cea mai scumpa masina este: %s", getNumeSoferMasinaScumpa(lista));
 
 	return 0;
 }
