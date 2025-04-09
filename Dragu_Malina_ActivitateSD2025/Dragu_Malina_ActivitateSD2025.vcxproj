@@ -127,8 +127,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Seminar_6.c" />
-    <ClCompile Include="Source.c" />
+    <ClCompile Include="Extra_Work_1.c" />
+    <ClCompile Include="Extra_work_2.c" />
+    <ClCompile Include="Extra_Work_3.c" />
+    <ClCompile Include="Seminar_01.c" />
+    <ClCompile Include="Seminar_02.c" />
+    <ClCompile Include="Seminar_03.c" />
+    <ClCompile Include="Seminar_04.c" />
+    <ClCompile Include="Seminar_05.c" />
+    <ClCompile Include="Laborator_04_cred.c" />
+    <ClCompile Include="Seminar_06.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="melodii.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

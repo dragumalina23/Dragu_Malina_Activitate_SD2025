@@ -13,13 +13,51 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Recapitulare">
+      <UniqueIdentifier>{a61f54e2-7ffa-44e0-8526-c4916f023feb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Labs">
+      <UniqueIdentifier>{eaa34859-95e6-4f3c-9518-5de017042159}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Task-uri suplimentare">
+      <UniqueIdentifier>{5c99c145-5954-427e-bc65-3736c6f8f1ec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Seminar_01.c">
+      <Filter>Source Files\Recapitulare</Filter>
     </ClCompile>
-    <ClCompile Include="Seminar_6.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Seminar_02.c">
+      <Filter>Source Files\Recapitulare</Filter>
     </ClCompile>
+    <ClCompile Include="Seminar_03.c">
+      <Filter>Source Files\Recapitulare</Filter>
+    </ClCompile>
+    <ClCompile Include="Seminar_04.c">
+      <Filter>Source Files\Recapitulare</Filter>
+    </ClCompile>
+    <ClCompile Include="Seminar_05.c">
+      <Filter>Source Files\Recapitulare</Filter>
+    </ClCompile>
+    <ClCompile Include="Seminar_06.c">
+      <Filter>Source Files\Recapitulare</Filter>
+    </ClCompile>
+    <ClCompile Include="Extra_Work_1.c">
+      <Filter>Source Files\Task-uri suplimentare</Filter>
+    </ClCompile>
+    <ClCompile Include="Laborator_04_cred.c">
+      <Filter>Source Files\Labs</Filter>
+    </ClCompile>
+    <ClCompile Include="Extra_work_2.c">
+      <Filter>Source Files\Task-uri suplimentare</Filter>
+    </ClCompile>
+    <ClCompile Include="Extra_Work_3.c">
+      <Filter>Source Files\Task-uri suplimentare</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="melodii.txt">
+      <Filter>Source Files\Recapitulare</Filter>
+    </Text>
   </ItemGroup>
 </Project>

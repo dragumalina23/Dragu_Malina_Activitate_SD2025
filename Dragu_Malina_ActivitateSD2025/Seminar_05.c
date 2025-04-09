@@ -248,13 +248,12 @@
 //
 //	printf("Pretul mediu al masinilor este: %.2f", calculeazaPretMediu(lista));
 //	printf("\n=========================================\n");
-//	printf("\n=========================================\n");
 //
 //	//stergeMasinaDupaID(&lista, 5);
 //	//afisareListaMasiniDeLaInceput(lista);
 //	
 //	printf("\n=========================================\n");
-//	printf("\n=========================================\n");
+// 
 //	printf("Numele soferului cu cea mai scumpa masina este: %s", getNumeSoferMasinaScumpa(lista));
 //
 //	return 0;
