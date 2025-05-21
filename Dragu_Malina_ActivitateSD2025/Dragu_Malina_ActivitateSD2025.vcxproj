@@ -130,6 +130,12 @@
     <ClCompile Include="Extra_Work_1.c" />
     <ClCompile Include="Extra_work_2.c" />
     <ClCompile Include="Extra_Work_3.c" />
+    <ClCompile Include="Extra_Work_5.c" />
+    <ClCompile Include="Laborator_08.c" />
+    <ClCompile Include="Laborator_09.c" />
+    <ClCompile Include="Laborator_10.c" />
+    <ClCompile Include="Laborator_11.c" />
+    <ClCompile Include="Laborator_12.c" />
     <ClCompile Include="Seminar_01.c" />
     <ClCompile Include="Seminar_02.c" />
     <ClCompile Include="Seminar_03.c" />
@@ -137,9 +143,13 @@
     <ClCompile Include="Seminar_05.c" />
     <ClCompile Include="Laborator_04_cred.c" />
     <ClCompile Include="Seminar_06.c" />
+    <ClCompile Include="seminar_08.c" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="masini.txt" />
+    <Text Include="masini_sortate.txt" />
     <Text Include="melodii.txt" />
+    <Text Include="muchii.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -22,6 +22,9 @@
     <Filter Include="Source Files\Task-uri suplimentare">
       <UniqueIdentifier>{5c99c145-5954-427e-bc65-3736c6f8f1ec}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Labs\Fisiere text">
+      <UniqueIdentifier>{7b1bde9b-2f01-4fa0-a46b-8306b7b58c07}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Seminar_01.c">
@@ -54,10 +57,40 @@
     <ClCompile Include="Extra_Work_3.c">
       <Filter>Source Files\Task-uri suplimentare</Filter>
     </ClCompile>
+    <ClCompile Include="Extra_Work_5.c">
+      <Filter>Source Files\Task-uri suplimentare</Filter>
+    </ClCompile>
+    <ClCompile Include="Laborator_08.c">
+      <Filter>Source Files\Labs</Filter>
+    </ClCompile>
+    <ClCompile Include="Laborator_09.c">
+      <Filter>Source Files\Labs</Filter>
+    </ClCompile>
+    <ClCompile Include="seminar_08.c">
+      <Filter>Source Files\Recapitulare</Filter>
+    </ClCompile>
+    <ClCompile Include="Laborator_10.c">
+      <Filter>Source Files\Labs</Filter>
+    </ClCompile>
+    <ClCompile Include="Laborator_11.c">
+      <Filter>Source Files\Labs</Filter>
+    </ClCompile>
+    <ClCompile Include="Laborator_12.c">
+      <Filter>Source Files\Labs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="melodii.txt">
       <Filter>Source Files\Recapitulare</Filter>
+    </Text>
+    <Text Include="masini.txt">
+      <Filter>Source Files\Labs\Fisiere text</Filter>
+    </Text>
+    <Text Include="masini_sortate.txt">
+      <Filter>Source Files\Labs\Fisiere text</Filter>
+    </Text>
+    <Text Include="muchii.txt">
+      <Filter>Source Files\Labs\Fisiere text</Filter>
     </Text>
   </ItemGroup>
 </Project>
