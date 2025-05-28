@@ -78,11 +78,29 @@
     <ClCompile Include="Laborator_12.c">
       <Filter>Source Files\Labs</Filter>
     </ClCompile>
+    <ClCompile Include="Recapitulare_heap.c">
+      <Filter>Source Files\Recapitulare</Filter>
+    </ClCompile>
+    <ClCompile Include="Recapitulare_ABC.c">
+      <Filter>Source Files\Recapitulare</Filter>
+    </ClCompile>
+    <ClCompile Include="Recapitulare_AVL.c">
+      <Filter>Source Files\Recapitulare</Filter>
+    </ClCompile>
+    <ClCompile Include="Citire_din_fisier.c">
+      <Filter>Source Files\Task-uri suplimentare</Filter>
+    </ClCompile>
+    <ClCompile Include="Recapitulare_Stive_Cozi.c">
+      <Filter>Source Files\Recapitulare</Filter>
+    </ClCompile>
+    <ClCompile Include="Recapitulare_teds.c">
+      <Filter>Source Files\Recapitulare</Filter>
+    </ClCompile>
+    <ClCompile Include="Recapitulare_pizzahut.c">
+      <Filter>Source Files\Recapitulare</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="melodii.txt">
-      <Filter>Source Files\Recapitulare</Filter>
-    </Text>
     <Text Include="masini.txt">
       <Filter>Source Files\Labs\Fisiere text</Filter>
     </Text>
@@ -90,6 +108,9 @@
       <Filter>Source Files\Labs\Fisiere text</Filter>
     </Text>
     <Text Include="muchii.txt">
+      <Filter>Source Files\Labs\Fisiere text</Filter>
+    </Text>
+    <Text Include="melodii.txt">
       <Filter>Source Files\Labs\Fisiere text</Filter>
     </Text>
   </ItemGroup>

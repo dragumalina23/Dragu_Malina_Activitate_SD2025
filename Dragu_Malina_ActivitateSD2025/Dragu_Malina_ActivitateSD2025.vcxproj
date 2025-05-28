@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Citire_din_fisier.c" />
     <ClCompile Include="Extra_Work_1.c" />
     <ClCompile Include="Extra_work_2.c" />
     <ClCompile Include="Extra_Work_3.c" />
@@ -136,6 +137,12 @@
     <ClCompile Include="Laborator_10.c" />
     <ClCompile Include="Laborator_11.c" />
     <ClCompile Include="Laborator_12.c" />
+    <ClCompile Include="Recapitulare_ABC.c" />
+    <ClCompile Include="Recapitulare_AVL.c" />
+    <ClCompile Include="Recapitulare_heap.c" />
+    <ClCompile Include="Recapitulare_pizzahut.c" />
+    <ClCompile Include="Recapitulare_Stive_Cozi.c" />
+    <ClCompile Include="Recapitulare_teds.c" />
     <ClCompile Include="Seminar_01.c" />
     <ClCompile Include="Seminar_02.c" />
     <ClCompile Include="Seminar_03.c" />
